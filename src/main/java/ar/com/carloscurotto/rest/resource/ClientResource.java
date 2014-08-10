@@ -8,6 +8,8 @@ public interface ClientResource {
 	
 	public void remove(int clientID);
 	
+	public void update(ClientDTO clientDTO);
+	
 	public ClientDTO get(int clientID);
 	
 	public String test();

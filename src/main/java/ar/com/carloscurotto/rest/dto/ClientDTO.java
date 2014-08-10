@@ -17,8 +17,9 @@ public class ClientDTO {
 	private String firstName;
 	private String lastName;
 	private int age;
-	
-	public ClientDTO() {}
+
+	public ClientDTO() {
+	}
 
 	public ClientDTO(int id, String firstName, String lastName, int age) {
 		// TODO validate input parameters
@@ -32,11 +33,11 @@ public class ClientDTO {
 		this(NO_ID, firstName, lastName, age);
 	}
 
-	public int getID() {
+	public int getId() {
 		return id;
 	}
 
-	public void setID(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -47,11 +48,11 @@ public class ClientDTO {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	
+
 	public String getLastName() {
 		return lastName;
 	}
-	
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
@@ -59,18 +60,18 @@ public class ClientDTO {
 	public int getAge() {
 		return age;
 	}
-	
+
 	public void setAge(int age) {
 		this.age = age;
 	}
 
 	public static ClientDTO fromDomain(Client client) {
-		return new ClientDTO(client.getID(), client.getFirstName(),
+		return new ClientDTO(client.getId(), client.getFirstName(),
 				client.getLastName(), client.getAge());
 	}
 
 	public static Client toDomain(ClientDTO clientDetailsDTO) {
-		return new Client(clientDetailsDTO.getID(),
+		return new Client(clientDetailsDTO.getId(),
 				clientDetailsDTO.getFirstName(),
 				clientDetailsDTO.getLastName(), clientDetailsDTO.getAge());
 	}

@@ -8,5 +8,7 @@ public interface ClientService {
 	
 	public void remove(int clientID);
 	
+	public void update(Client client);
+	
 	public Client get(int clientID);
 }

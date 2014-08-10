@@ -17,19 +17,24 @@ public class InMemoryClientService implements ClientService {
 
 	@Override
 	public void store(Client client) {
-		int clientID = this.idCounter.incrementAndGet();
-		client.setID(clientID);
-		this.clients.put(clientID, client);
+		int clientId = this.idCounter.incrementAndGet();
+		client.setId(clientId);
+		this.clients.put(clientId, client);
 	}
 
 	@Override
-	public void remove(int clientID) {
-		this.clients.remove(clientID);
+	public void remove(int clientId) {
+		this.clients.remove(clientId);
 	}
 
 	@Override
-	public Client get(int clientID) {
-		return this.clients.get(clientID);
+	public void update(Client client) {
+		this.clients.put(client.getId(), client);
+	}
+
+	@Override
+	public Client get(int clientId) {
+		return this.clients.get(clientId);
 	}
 
 }

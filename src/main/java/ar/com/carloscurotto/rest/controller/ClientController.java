@@ -5,6 +5,7 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -34,11 +35,19 @@ public class ClientController implements ClientResource {
 	@Override
 	@Path("/remove/{id}")
 	@DELETE
-	@Consumes(MediaType.APPLICATION_JSON)
-	public void remove(int clientID) {
+	public void remove(@PathParam("id") int clientID) {
 		ServiceProvider.getInstance().getClientService().remove(clientID);
 	}	
 
+	@Override
+	@Path("/update")
+	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void update(ClientDTO clientDTO) {
+		Client client = ClientDTO.toDomain(clientDTO);
+		ServiceProvider.getInstance().getClientService().update(client);
+	}	
+	
 	@Override
 	@Path("/get/{id}")
 	@GET
